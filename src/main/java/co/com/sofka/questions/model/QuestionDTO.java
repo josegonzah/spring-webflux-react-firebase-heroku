@@ -8,6 +8,8 @@ import java.util.Objects;
 import java.util.Optional;
 
 public class QuestionDTO {
+
+    //¿Por que ninguno de los 2 modelos tienen una etiqueta id?, lo demás es lógico que no esté vacío y que esté asociado aa un usuario
     private String id;
     @NotBlank
     private String userId;
@@ -17,20 +19,21 @@ public class QuestionDTO {
     private String type;
     @NotBlank
     private String category;
-    private List<AnswerDTO> answers;
+    private List<AnswerDTO> answers; //La reactividad se ve reflejada en los Dtos
 
 
     public QuestionDTO() {
 
     }
 
+    //Constructores que construyenb una pregunta a pqrtir de un userId asociado
     public QuestionDTO(String userId, String question, String type, String category) {
         this.userId = userId;
         this.question = question;
         this.type = type;
         this.category = category;
     }
-
+    //Construye la pregunta desde 0
     public QuestionDTO(String id, String userId, String question, String type, String category) {
         this.id = id;
         this.userId = userId;
@@ -39,6 +42,7 @@ public class QuestionDTO {
         this.category = category;
     }
 
+    //Get con maenjo de errores por si la lista de respuestas es nula
     public List<AnswerDTO> getAnswers() {
         this.answers = Optional.ofNullable(answers).orElse(new ArrayList<>());
         return answers;

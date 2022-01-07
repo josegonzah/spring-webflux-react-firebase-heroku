@@ -9,6 +9,7 @@ import reactor.core.publisher.Mono;
 
 @Repository
 public interface AnswerRepository extends ReactiveCrudRepository<Answer, String> {
+    //Hay solo dos operaciones en el repository, encontarr las pregunats por Id y borrar una pregunta por el Id, todo tiene sentiudo aca
     Flux<Answer> findAllByQuestionId(String id);
 
     Mono<Void> deleteByQuestionId(String questionId);

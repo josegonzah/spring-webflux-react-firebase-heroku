@@ -63,7 +63,7 @@ public class QuestionRouter {
                         .body(BodyInserters.fromPublisher(getUseCase.apply(
                                 request.pathVariable("id")),
                                 QuestionDTO.class
-                        ))
+                        )).onErrorResume(throwable -> ServerResponse.badRequest().body(throwable.getMessage(), String.class))
         );
     }
 

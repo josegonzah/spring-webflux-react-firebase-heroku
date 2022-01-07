@@ -11,8 +11,10 @@ body {
   
   nav {
     display: flex;
-    padding: 2rem 0;
-    background: #111;
+    padding: 1.5rem 0;
+    background: #F2F2F2;
+    align-items: center;
+    padding: 1.5rem 0;
   }
   
   nav section {
@@ -30,11 +32,11 @@ body {
   }
   
   nav a:hover {
-    background: #222;
+    background: #DFD3C3;
   }
   
   a {
-    color: #ea3546;
+    color: #8946A6;
     text-decoration: none;
   }
   
@@ -94,7 +96,7 @@ body {
   
   .button {
     display: inline-block;
-    background: #ea3546;
+    background: #B762C1;
     color: white;
     border-radius: 4px;
     font-weight: 700;
