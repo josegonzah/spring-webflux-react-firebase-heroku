@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 
 import { fetchQuestions } from '../actions/questionActions'
 import { Question } from '../components/Question'
+import Footer from '../components/Footer'
 
 const QuestionsPage = ({ dispatch, loading, questions, hasErrors }) => {
     useEffect(() => {
@@ -17,9 +18,10 @@ const QuestionsPage = ({ dispatch, loading, questions, hasErrors }) => {
     }
 
     return (
-        <section>
+        <section className="page-section">
             <h1>Questions</h1>
             {renderQuestions()}
+            <Footer></Footer>
         </section>
     )
 }

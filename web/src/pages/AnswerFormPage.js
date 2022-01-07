@@ -4,6 +4,7 @@ import { useHistory } from "react-router-dom";
 import {  fetchQuestion, postAnswer } from '../actions/questionActions'
 import { connect } from 'react-redux'
 import { Question } from '../components/Question'
+import Footer from '../components/Footer'
 
 const FormPage = ({ dispatch, loading, redirect, match,hasErrors, question, userId }) => {
     const { register, handleSubmit } = useForm();
@@ -48,6 +49,7 @@ const FormPage = ({ dispatch, loading, redirect, match,hasErrors, question, user
                     loading ? "Saving ...." : "Save"
                 }</button>
             </form>
+            <Footer/>
         </section>
 
     );

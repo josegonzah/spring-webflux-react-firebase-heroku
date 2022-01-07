@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import { fetchQuestion } from '../actions/questionActions'
 
 import { Question } from '../components/Question'
+import Footer from '../components/Footer'
 import { Answer } from '../components/Answer'
 import { Link } from 'react-router-dom'
 
@@ -42,6 +43,7 @@ const SingleQuestionPage = ({
 
       <h2>Answers</h2>
       {renderAnswers()}
+      <Footer></Footer>
     </section>
   )
 }

@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import Footer from '../components/Footer'
 
 const HomePage = ({children}) => (
   <section>
@@ -11,7 +12,7 @@ const HomePage = ({children}) => (
     <Link to="/questions" className="button">
       View Questions
     </Link>
-  
+  <Footer></Footer>
   </section>
 )
 export default HomePage

@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 
 import { fetchOwnerQuestions, deleteQuestion } from '../actions/questionActions'
 import { Question } from '../components/Question'
+import Footer from '../components/Footer'
 
 const OwnerQuestionsPage = ({ dispatch, loading, questions, hasErrors, redirect, userId }) => {
     useEffect(() => {
@@ -34,6 +35,7 @@ const OwnerQuestionsPage = ({ dispatch, loading, questions, hasErrors, redirect,
         <section>
             <h1>Questions</h1>
             {renderQuestions()}
+            <Footer></Footer>
         </section>
     )
 }
