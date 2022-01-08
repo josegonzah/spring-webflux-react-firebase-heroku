@@ -32,7 +32,8 @@ body {
   }
   
   nav a:hover {
-    background: #DFD3C3;
+    background: #35858B;
+    color: white;
   }
   
   a {
@@ -103,6 +104,18 @@ body {
     padding: 0.75rem 1.5rem;
   }
 
+  .button:hover{
+    cursor: pointer;
+    background-color: #3E065F;
+  }
+
+  .categorySearch:hover{
+    cursor: pointer;
+    text-decoration: underline;
+    color: #AA14F0;
+  }
+
+
   .right {
     float: right;
   }
@@ -131,5 +144,10 @@ body {
     padding: 1rem 0 1rem 0;
     background-color: #781C68;
     color: white;
+  }
+
+  .Link{
+    background-color: #8E05C2;
+
   }
   
