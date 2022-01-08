@@ -20,7 +20,7 @@ public class QuestionDTO {
     @NotBlank
     private String category;
     private List<AnswerDTO> answers; //La reactividad se ve reflejada en los Dtos
-
+    private String userEmail;
 
     public QuestionDTO() {
 
@@ -34,18 +34,27 @@ public class QuestionDTO {
         this.category = category;
     }
     //Construye la pregunta desde 0
-    public QuestionDTO(String id, String userId, String question, String type, String category) {
+    public QuestionDTO(String id, String userId, String question, String type, String category, String userEmail) {
         this.id = id;
         this.userId = userId;
         this.question = question;
         this.type = type;
         this.category = category;
+        this.userEmail = userEmail;
     }
 
     //Get con maenjo de errores por si la lista de respuestas es nula
     public List<AnswerDTO> getAnswers() {
         this.answers = Optional.ofNullable(answers).orElse(new ArrayList<>());
         return answers;
+    }
+
+    public String getUserEmail() {
+        return userEmail;
+    }
+
+    public void setUserEmail(String userEmail) {
+        this.userEmail = userEmail;
     }
 
     public void setAnswers(List<AnswerDTO> answers) {

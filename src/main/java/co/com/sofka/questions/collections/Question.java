@@ -12,7 +12,11 @@ public class Question {
     private String question;
     private String type;
     private String category;
+    private String userEmail;
 
+    public String getUserEmail() {
+        return userEmail;
+    }
 
     public String getId() {
         return id;
@@ -53,4 +57,6 @@ public class Question {
     public void setCategory(String category) {
         this.category = category;
     }
+
+    public void setUserEmail(String userEmail) { this.userEmail = userEmail;}
 }
