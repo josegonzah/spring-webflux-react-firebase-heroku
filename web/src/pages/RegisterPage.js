@@ -54,11 +54,6 @@ const RegisterPage = ({dispatch})=>{
                             <input type="password" id="password" className="fadeIn third" name="password" placeholder="password" value={userInfo.password} onChange={updateInfo} />
                             <input type="submit" className="fadeIn fourth button" value="Resgister" />
                         </form>
-
-                        <div id="formFooter">
-                            <a className="underlineHover" href="#">Olvidaste la contraseña?</a>
-                        </div>
-
                     </div>
                 </div>
             </div>

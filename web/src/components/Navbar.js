@@ -19,7 +19,6 @@ export const PrivateNavbar = ({SignOut, dispatch}) => (
     <section>
       <Link to="/">Home</Link>
       <Link to="/questions">Questions</Link>
-      <Link to="/login"><button className="button right">Log in</button></Link>
       <Link to="/new">New</Link>
       <Link to="/list">List</Link>
     </section>

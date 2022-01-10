@@ -22,6 +22,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import LoginPage from './pages/LoginPage'
 import RegisterPage from './pages/RegisterPage'
 
+
 const auth = firebase.auth();
 
 const App = ({ dispatch }) => {
@@ -45,12 +46,6 @@ const App = ({ dispatch }) => {
             <Route exact path="/list" component={OwnerQuestionsPage} />
             <Route exact path="/answer/:id" component={AnswerFormPage} />
             <Route exact path="/new" component={QuestionFormPage} />
-            <Route exact path="/login" component={()=>{
-              return <LoginPage dispatch={dispatch} />
-            }} />
-            <Route exact path="/register" component={()=>{
-              return <RegisterPage dispatch={dispatch} />
-            }} />
             <Redirect to="/" />
           </Switch>
         </> :
@@ -63,6 +58,12 @@ const App = ({ dispatch }) => {
             <Route exact path="/questions" component={QuestionsPage} />
             <Route exact path="/question/:id" component={SingleQuestionPage} />
             <Route exact path="/answer/:id" component={AnswerFormPage} />
+            <Route exact path="/login" component={()=>{
+              return <LoginPage dispatch={dispatch} />
+            }} />
+            <Route exact path="/register" component={()=>{
+              return <RegisterPage dispatch={dispatch} />
+            }} />
             <Redirect to="/" />
           </Switch>
           <Footer></Footer>

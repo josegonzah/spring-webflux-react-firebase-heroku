@@ -62,8 +62,6 @@ firebase.initializeApp({
                         <input type="text" id="login" className="fadeIn second" name="name" placeholder="Email address" value={userInfo.name} onChange={updateUserInfo}/>
                         <input type="text" id="password" className="fadeIn third" name="password" placeholder="password" value={userInfo.password} onChange={updateUserInfo} />
                         <input type="submit" className="fadeIn fourth" value="Log In" />
-                        <input type="password" id="password" className="fadeIn third" name="password" placeholder="password" value={userInfo.password} onChange={updateUserInfo} />
-                        <input type="submit" className="fadeIn fourth button" value="Log In" />
                     </form>
 
                 </div>
