@@ -19,28 +19,23 @@ import QuestionFormPage from './pages/QuestionFormPage'
 import AnswerFormPage from './pages/AnswerFormPage'
 import OwnerQuestionsPage from './pages/OwnerQuestionsPage'
 import { useAuthState } from "react-firebase-hooks/auth";
-
-firebase.initializeApp({
-  apiKey: "AIzaSyCTySyvuIDPg7RWF6ceuuwC2t3BEiAK38o",
-  authDomain: "question-app-demo.firebaseapp.com",
-  projectId: "question-app-demo",
-  storageBucket: "question-app-demo.appspot.com",
-  messagingSenderId: "1038673531562",
-  appId: "1:1038673531562:web:da90421f639a3115dcf6d3"
-});
+import LoginPage from './pages/LoginPage'
+import RegisterPage from './pages/RegisterPage'
 
 const auth = firebase.auth();
 
 const App = ({ dispatch }) => {
   const [user] = useAuthState(auth);
+
   if(user){
     dispatch(login(user.email, user.uid))
   }
+
   return (
     <Router>
       {user ?
         <>
-          <PrivateNavbar />
+          <PrivateNavbar SignOut={SignOut} dispatch={dispatch}/>
           <Switch>
             <Route exact path="/" component={() => {
               return <HomePage><SignOut dispatch={dispatch} /></HomePage>
@@ -50,6 +45,12 @@ const App = ({ dispatch }) => {
             <Route exact path="/list" component={OwnerQuestionsPage} />
             <Route exact path="/answer/:id" component={AnswerFormPage} />
             <Route exact path="/new" component={QuestionFormPage} />
+            <Route exact path="/login" component={()=>{
+              return <LoginPage dispatch={dispatch} />
+            }} />
+            <Route exact path="/register" component={()=>{
+              return <RegisterPage dispatch={dispatch} />
+            }} />
             <Redirect to="/" />
           </Switch>
         </> :
@@ -77,7 +78,7 @@ function SignIn() {
     const provider = new firebase.auth.GoogleAuthProvider();
     auth.signInWithPopup(provider);
   };
-  return <button className="button right" onClick={signInWithGoogle}>Sign in with google</button>;
+  return <button className="button" style={{display: 'block', width: '100%'}} onClick={signInWithGoogle}>Sign in with google</button>;;
 }
 
 function SignOut({ dispatch }) {
@@ -98,3 +99,4 @@ function SignOut({ dispatch }) {
 
 
 export default App
+export {SignIn}

@@ -5,7 +5,7 @@ import { postQuestion } from '../actions/questionActions'
 import { connect } from 'react-redux'
 import Footer from '../components/Footer'
 
-const FormPage = ({ dispatch, loading, redirect, userId, userEmail }) => {
+const FormPage = ({ dispatch, loading, redirect, userId, userEmail, auth }) => {
     const { register, handleSubmit } = useForm();
     const history = useHistory();
 
@@ -66,6 +66,7 @@ const mapStateToProps = state => ({
     redirect: state.question.redirect,
     hasErrors: state.question.hasErrors,
     userId: state.auth.uid,
+    auth: state.auth.uid,
     userEmail: state.auth.email
 })
 
