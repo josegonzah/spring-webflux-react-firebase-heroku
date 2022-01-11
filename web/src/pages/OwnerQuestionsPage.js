@@ -18,6 +18,7 @@ const OwnerQuestionsPage = ({ dispatch, loading, questions, hasErrors, redirect,
 
     const onDelete = (id) => {
         dispatch(deleteQuestion(id))
+        
     }
 
 

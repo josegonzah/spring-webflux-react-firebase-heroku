@@ -2,8 +2,12 @@ package co.com.sofka.questions.usecases;
 
 import co.com.sofka.questions.model.QuestionDTO;
 import co.com.sofka.questions.reposioties.QuestionRepository;
+import org.springframework.stereotype.Service;
+import org.springframework.validation.annotation.Validated;
 import reactor.core.publisher.Mono;
 
+@Service
+@Validated
 public class UpdateInfoQuestionUseCase implements UpdateQuestion{
     private final QuestionRepository repository;
     private final MapperUtils mapperUtils;

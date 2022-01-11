@@ -92,10 +92,10 @@ public class QuestionRouter {
     }
 
     @Bean
-    public RouterFunction<ServerResponse> addReview(AddRateUseCase addReviewUseCase) {
-        return route(PUT("/addreview").and(accept(MediaType.APPLICATION_JSON)),
+    public RouterFunction<ServerResponse> addRating(AddRateUseCase addRateUseCase) {
+        return route(PUT("/addrating").and(accept(MediaType.APPLICATION_JSON)),
                 request -> request.bodyToMono(Rate.class)
-                        .flatMap(review -> addReviewUseCase.addRate(review)
+                        .flatMap(review -> addRateUseCase.addRate(review)
                                 .flatMap(result -> ServerResponse.ok()
                                         .contentType(MediaType.APPLICATION_JSON)
                                         .bodyValue(result))
@@ -104,10 +104,10 @@ public class QuestionRouter {
     }
 
     @Bean
-    public RouterFunction<ServerResponse> update(UpdateInfoQuestionUseCase updateQuestionUseCase) {
+    public RouterFunction<ServerResponse> update(UpdateInfoQuestionUseCase updateInfoQuestionUseCase) {
         return route(PUT("/edit").and(accept(MediaType.APPLICATION_JSON)),
                 request -> request.bodyToMono(QuestionDTO.class)
-                        .flatMap(questionDTO -> updateQuestionUseCase.apply(questionDTO)
+                        .flatMap(questionDTO -> updateInfoQuestionUseCase.apply(questionDTO)
                                 .flatMap(result -> ServerResponse.ok()
                                         .contentType(MediaType.APPLICATION_JSON)
                                         .bodyValue(result))
