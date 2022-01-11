@@ -21,8 +21,11 @@ public class QuestionDTO {
     private String category;
     private List<AnswerDTO> answers; //La reactividad se ve reflejada en los Dtos
     private String userEmail;
+    private Integer numberOfRates = 0;
+    private Integer sumOfRates = 0;
+    private List<String> rates = new ArrayList<>();
 
-    public QuestionDTO() {
+    public QuestionDTO(String id, String userId, String question, String type, String category, String userEmail, Integer numberOfRates, Integer sumOfRates, List<String> rates) {
 
     }
 
@@ -41,6 +44,43 @@ public class QuestionDTO {
         this.type = type;
         this.category = category;
         this.userEmail = userEmail;
+    }
+
+    public QuestionDTO(String id, String userId, String question, String type, String category, List<AnswerDTO> answers, String userEmail, Integer numberOfRates, Integer sumOfRates, List<String> rates) {
+        this.id = id;
+        this.userId = userId;
+        this.question = question;
+        this.type = type;
+        this.category = category;
+        this.answers = answers;
+        this.userEmail = userEmail;
+        this.numberOfRates = numberOfRates;
+        this.sumOfRates = sumOfRates;
+        this.rates = rates;
+    }
+
+    public Integer getNumberOfRates() {
+        return numberOfRates;
+    }
+
+    public Integer getSumOfRates() {
+        return sumOfRates;
+    }
+
+    public List<String> getRates() {
+        return rates;
+    }
+
+    public void setNumberOfRates(Integer numberOfRates) {
+        this.numberOfRates = numberOfRates;
+    }
+
+    public void setSumOfRates(Integer sumOfRates) {
+        this.sumOfRates = sumOfRates;
+    }
+
+    public void setRates(List<String> rates) {
+        this.rates = rates;
     }
 
     //Get con maenjo de errores por si la lista de respuestas es nula
@@ -102,6 +142,19 @@ public class QuestionDTO {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        QuestionDTO that = (QuestionDTO) o;
+        return Objects.equals(id, that.id) && Objects.equals(userId, that.userId) && Objects.equals(question, that.question) && Objects.equals(type, that.type) && Objects.equals(category, that.category) && Objects.equals(answers, that.answers) && Objects.equals(userEmail, that.userEmail) && Objects.equals(numberOfRates, that.numberOfRates) && Objects.equals(sumOfRates, that.sumOfRates) && Objects.equals(rates, that.rates);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, userId, question, type, category, answers, userEmail, numberOfRates, sumOfRates, rates);
+    }
+
+    @Override
     public String toString() {
         return "QuestionDTO{" +
                 "id='" + id + '\'' +
@@ -109,19 +162,11 @@ public class QuestionDTO {
                 ", question='" + question + '\'' +
                 ", type='" + type + '\'' +
                 ", category='" + category + '\'' +
+                ", answers=" + answers +
+                ", userEmail='" + userEmail + '\'' +
+                ", numberOfRates=" + numberOfRates +
+                ", sumOfRates=" + sumOfRates +
+                ", rates=" + rates +
                 '}';
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        QuestionDTO that = (QuestionDTO) o;
-        return Objects.equals(id, that.id);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id);
     }
 }

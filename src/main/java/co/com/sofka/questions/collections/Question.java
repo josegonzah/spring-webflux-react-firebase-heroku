@@ -3,6 +3,9 @@ package co.com.sofka.questions.collections;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 @Document
 public class Question {
@@ -13,6 +16,33 @@ public class Question {
     private String type;
     private String category;
     private String userEmail;
+    private Integer numberOfRates = 0;
+    private Integer sumOfRates = 0;
+    private List<String> rates = new ArrayList<>();
+
+    public Integer getNumberOfRates() {
+        return numberOfRates;
+    }
+
+    public Integer getSumOfRates() {
+        return sumOfRates;
+    }
+
+    public List<String> getRates() {
+        return rates;
+    }
+
+    public void setNumberOfRates(Integer numberOfRates) {
+        this.numberOfRates = numberOfRates;
+    }
+
+    public void setSumOfRates(Integer sumOfRates) {
+        this.sumOfRates = sumOfRates;
+    }
+
+    public void setRates(List<String> rates) {
+        this.rates = rates;
+    }
 
     public String getUserEmail() {
         return userEmail;

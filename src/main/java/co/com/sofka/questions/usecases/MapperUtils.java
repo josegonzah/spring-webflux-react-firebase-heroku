@@ -31,6 +31,9 @@ public class MapperUtils {
             question.setQuestion(updateQuestion.getQuestion());
             question.setUserId(updateQuestion.getUserId());
             question.setType(updateQuestion.getType());
+            question.setNumberOfRates(updateQuestion.getNumberOfRates());
+            question.setSumOfRates(updateQuestion.getSumOfRates());
+            question.setRates(updateQuestion.getRates());
             question.setUserEmail(updateQuestion.getUserEmail());
             return question;
         };
@@ -43,7 +46,10 @@ public class MapperUtils {
                 entity.getQuestion(),
                 entity.getType(),
                 entity.getCategory(),
-                entity.getUserEmail()
+                entity.getUserEmail(),
+                entity.getNumberOfRates(),
+                entity.getSumOfRates(),
+                entity.getRates()
         );
     }
 
