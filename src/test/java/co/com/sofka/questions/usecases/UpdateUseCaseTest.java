@@ -30,8 +30,10 @@ class UpdateUseCaseTest {
     @Test
     @DisplayName("Actualizar pregunta use case")
     void UpdateQuestionTest(){
-        var questionDTO = new QuestionDTO("123456789qwerty", "123456789", "Primer presidente de estados unidos",
-                "OPEN (LONG OPEN BOX)", "SOCIAL SCIENCES","josedavid.sofka@gmail.com");
+        List<String> listParameter = new ArrayList<>();
+        listParameter.add("123456");
+        var questionDto = new QuestionDTO("123456789qwerty", "123456789", "Primer presidente de estados unidos",
+                "OPEN (LONG OPEN BOX)", "SOCIAL SCIENCES","josedavid.sofka@gmail.com", 1, 1, listParameter);
 
         var resource = new Question();
         resource.setId("123456789qwerty");
@@ -39,10 +41,13 @@ class UpdateUseCaseTest {
         resource.setQuestion("Primer presidente de estados unidos");
         resource.setType("OPEN (LONG OPEN BOX)");
         resource.setUserEmail("josedavid.sofka@gmail.com");
+        resource.setRates(listParameter);
+        resource.setSumOfRates(1);
+        resource.setNumberOfRates(1);
 
         when(questionRepository.save(Mockito.any(Question.class))).thenReturn(Mono.just(resource));
 
-        var result = updateUseCase.apply(questionDTO);
+        var result = updateUseCase.apply(questionDto);
 
         Assertions.assertEquals(Objects.requireNonNull(result.block()),"123456789qwerty");
     }

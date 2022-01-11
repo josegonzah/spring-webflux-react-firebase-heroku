@@ -30,8 +30,10 @@ class CreateUseCaseTest {
     @Test
     @DisplayName("Crear una pregunta caso de uso")
     void createResource(){
+        List<String> listParameter = new ArrayList<>();
+        listParameter.add("123456");
         var questionDTO = new QuestionDTO("123456789qwerty", "123456789", "Primer presidente de estados unidos",
-                "OPEN (LONG OPEN BOX)", "SOCIAL SCIENCES","josedavid.sofka@gmail.com");
+                "OPEN (LONG OPEN BOX)", "SOCIAL SCIENCES","josedavid.sofka@gmail.com", 1, 1, listParameter);
 
         var question = new Question();
         question.setId("123456789qwerty");
@@ -40,6 +42,9 @@ class CreateUseCaseTest {
         question.setType("OPEN (LONG OPEN BOX)");
         question.setCategory("SOCIAL SCIENCES");
         question.setUserEmail("josedavid.sofka@gmail.com");
+        question.setNumberOfRates(1);
+        question.setSumOfRates(1);
+        question.setRates(listParameter);
 
         when(repository.save(Mockito.any(Question.class))).thenReturn(Mono.just(question));
 

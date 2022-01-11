@@ -32,8 +32,10 @@ class AddAnswerUseCaseTest {
     @Test
     @DisplayName("Probando agregar una respuesta")
     void addAnswerTest(){
+        List<String> listParameter = new ArrayList<>();
+        listParameter.add("123456");
         var questionDto = new QuestionDTO("123456789qwerty", "123456789", "Primer presidente de estados unidos",
-                "OPEN (LONG OPEN BOX)", "SOCIAL SCIENCES","josedavid.sofka@gmail.com");
+                "OPEN (LONG OPEN BOX)", "SOCIAL SCIENCES","josedavid.sofka@gmail.com", 1, 1, listParameter);
         var answerDto = new AnswerDTO("123456789qwerty", "123456789", "George Washington");
         var answer = new Answer();
         answer.setId("123456789asdf");
