@@ -1,10 +1,11 @@
 import React from "react";
 
 function Rating({ question }) {
+  
   const average = Math.round(
-    question.sumOfReviewScores / question.numberOfReviews
+    question.sumOfRates / question.numberOfRates
   );
-
+  console.log(average);
   switch (average) {
     case 1:
       return <div>{`\u{1f641}`}</div>;

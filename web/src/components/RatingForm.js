@@ -13,7 +13,8 @@ function RatingForm({ question, user, dispatch, loading, hasErrors }) {
   };
 
   const renderQuestions = () => {
-    return question.Rating.includes(user);
+    console.log(question)
+    return question.rates.includes(user);
   };
   if (loading) return <p>Loading ...</p>;
   if (hasErrors) return <p>Unable to display questions.</p>;
