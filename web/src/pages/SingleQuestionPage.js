@@ -7,6 +7,7 @@ import { Question } from '../components/Question'
 import Footer from '../components/Footer'
 import { Answer } from '../components/Answer'
 import { Link } from 'react-router-dom'
+import RatingForm from '../components/RatingForm'
 
 const SingleQuestionPage = ({
   match,
