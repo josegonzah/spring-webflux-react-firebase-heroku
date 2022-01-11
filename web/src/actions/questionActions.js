@@ -1,4 +1,4 @@
-const URL_BASE = 'http://sofkau-q-and-a.herokuapp.com';
+const URL_BASE = 'https://sofkau-q-and-a.herokuapp.com';
 
 export const LOADING = 'LOADING'
 export const LOADED_SUCCESS = 'LOADED_SUCCESS'
