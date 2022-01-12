@@ -25,7 +25,7 @@ public class SendEmailService {
         System.out.println("ESTO ES DE CONTROL!!!!!!!!!!!!!!!");
         System.out.println(to);
 
-        String message = "Added an answer to your question " + body;
+        String message = "Someone added an answer to your question " + body;
 
         simpleMailMessage.setFrom(FROM);
         simpleMailMessage.setTo(to);

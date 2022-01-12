@@ -11,6 +11,7 @@ const FormPage = ({ dispatch, loading, redirect, userId, userEmail, auth }) => {
 
     const onSubmit = data => {
         data.userId = userId;
+        console.log(data);
         dispatch(postQuestion({...data, userEmail}));
     };
 
@@ -66,7 +67,7 @@ const mapStateToProps = state => ({
     redirect: state.question.redirect,
     hasErrors: state.question.hasErrors,
     userId: state.auth.uid,
-    auth: state.auth.uid,
+    auth: state.auth,
     userEmail: state.auth.email
 })
 

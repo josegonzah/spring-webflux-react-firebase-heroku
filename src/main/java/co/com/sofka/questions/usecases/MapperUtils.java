@@ -40,6 +40,7 @@ public class MapperUtils {
     }
 
     public Function<Question, QuestionDTO> mapEntityToQuestion() {
+        System.out.println("Entro aca");
         return entity -> new QuestionDTO(
                 entity.getId(),
                 entity.getUserId(),

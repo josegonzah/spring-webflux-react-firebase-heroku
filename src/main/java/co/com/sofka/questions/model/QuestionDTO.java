@@ -2,10 +2,7 @@ package co.com.sofka.questions.model;
 
 
 import javax.validation.constraints.NotBlank;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
-import java.util.Optional;
+import java.util.*;
 
 public class QuestionDTO {
 
@@ -25,6 +22,9 @@ public class QuestionDTO {
     private Integer sumOfRates = 0;
     private List<String> rates = new ArrayList<>();
 
+    public QuestionDTO() {
+    }
+
     //Constructores que construyenb una pregunta a pqrtir de un userId asociado
     public QuestionDTO(String userId, String question, String type, String category) {
         this.userId = userId;
@@ -43,6 +43,15 @@ public class QuestionDTO {
         this.numberOfRates = numberOfRates;
         this.sumOfRates = sumOfRates;
         this.rates = rates;
+    }
+
+    public QuestionDTO(String id, String userId, String question, String type, String category, String userEmail) {
+        this.id = id;
+        this.userId = userId;
+        this.question = question;
+        this.type = type;
+        this.category = category;
+        this.userEmail = userEmail;
     }
 
     public Integer getNumberOfRates() {
